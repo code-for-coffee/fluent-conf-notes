@@ -377,4 +377,57 @@ Cons:
 - `npm install -g serverless`
 - `serverless create -t aws-nodejs`
 - `serverless deploy`
+  * `serverless deploy -v`
+  * `serverless deploy --stage stagehouse`
 - `serverless remove`
+
+#### Deployment
+
+```bash
+$ serverless deploy -v
+Serverless: Packaging service...
+Serverless: Creating Stack...
+Serverless: Checking Stack create progress...
+CloudFormation - CREATE_IN_PROGRESS - AWS::CloudFormation::Stack - hello-world-dev
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::Bucket - ServerlessDeploymentBucket
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::Bucket - ServerlessDeploymentBucket
+CloudFormation - CREATE_COMPLETE - AWS::S3::Bucket - ServerlessDeploymentBucket
+CloudFormation - CREATE_COMPLETE - AWS::CloudFormation::Stack - hello-world-dev
+Serverless: Stack create finished...
+Serverless: Uploading CloudFormation file to S3...
+Serverless: Uploading artifacts...
+Serverless: Uploading service .zip file to S3 (5.3 KB)...
+Serverless: Validating template...
+Serverless: Updating Stack...
+Serverless: Checking Stack update progress...
+CloudFormation - UPDATE_IN_PROGRESS - AWS::CloudFormation::Stack - hello-world-dev
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - HelloLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::IAM::Role - IamRoleLambdaExecution
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - HelloLogGroup
+CloudFormation - CREATE_COMPLETE - AWS::Logs::LogGroup - HelloLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::IAM::Role - IamRoleLambdaExecution
+CloudFormation - CREATE_COMPLETE - AWS::IAM::Role - IamRoleLambdaExecution
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - HelloLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - HelloLambdaFunction
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Function - HelloLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - HelloLambdaVersionwYourTokenKeyHere
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - HelloLambdaVersionwYourTokenKeyHere
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Version - HelloLambdaVersionwYourTokenKeyHere
+CloudFormation - UPDATE_COMPLETE_CLEANUP_IN_PROGRESS - AWS::CloudFormation::Stack - hello-world-dev
+CloudFormation - UPDATE_COMPLETE - AWS::CloudFormation::Stack - hello-world-dev
+Serverless: Stack update finished...
+Service Information
+service: hello-world
+stage: dev
+region: us-east-1
+api keys:
+  None
+endpoints:
+  None
+functions:
+  hello: hello-world-dev-hello
+
+Stack Outputs
+HelloLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:SomePlaceNumber:function:hello-world-dev-hello:1
+ServerlessDeploymentBucketName: hello-world-dev-serverlessdeploymentbucket-i5nv4sve3o8d
+```

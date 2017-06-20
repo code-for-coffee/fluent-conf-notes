@@ -431,3 +431,13 @@ Stack Outputs
 HelloLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:SomePlaceNumber:function:hello-world-dev-hello:1
 ServerlessDeploymentBucketName: hello-world-dev-serverlessdeploymentbucket-i5nv4sve3o8d
 ```
+
+#### Invoking
+
+```bash
+$ serverless invoke -f hello --data '{"dto":true}'
+{
+    "statusCode": 200,
+    "body": "{\"message\":\"Hello World!\",\"input\":{\"dto\":true}}"
+}
+```

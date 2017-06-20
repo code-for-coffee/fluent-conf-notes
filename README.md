@@ -186,6 +186,159 @@ CSS -> CSSDOC
 * HTTP1 has a queue that just loads content
 * HTTP2 just has everything being requested/downloaded at the same time and they compete for bandwidth - _load critical images first_
 
+#### Who is doing this?
+
+* 100% of sampled sites have 1+ image
+  * Median page has 55 images per page
+* 89% of pages have at least one jpeg
+  * Median of 20-25 jepgs per page
+* 10% of pages have at least 1 wepb
+  * Median 1-5 webp images per page
+* 30% of pages have at least 1 svg
+  * Median of 1-5 svg images per page (likely due to sprite sheets or just icons)
+
+##### Adoption
+
+* 0.2% of sites have at least 1 srcset
+* 2% of sites use the picture tag
+
+
+#### Service Workers
+* Built in browser proxy
+* Javascript based
+* Decent support (no Safari yet)
+* Bonus of push notifications
+* Cache assets on start up
+* Use cache when no network (serve content to users when their devices are offline)
+* Error handle when no cache and no network
+
+#### Why you should care?
+* JS loading - execution time of javascript load
+  * Scripts are going to load syncronously
+  * We can use async which will load multiple javascript files together - gained some time by combining
+  * defer - to grab javascript file after others have loaded
+  * add into script tag async or defer
+  * with async you cannot guarantee order, must combine files
+  * performance.measure
+  * performance.mark
+  * The Performance interface represents timing-related performance information for the given page.
+
+> 43% sites use async - 2 scripts per page
+
+* 14% sites use defer
+* 71% - 1 script per page
+
+#### User Timings
+* Report metrics back to business to see how it’s performing
+* 0.19% of sites use performance.mark
+* 40% 2 timings
+* 116 sites with service workers on their sites 0.1% adoption is low
+* User timing helps measure what’s important
+* Service workers are not well adopted. Can provide offline experiences
+
+#### HTTPS & HTTP/2
+Encrpytion and Sharing of secrets between the client and the server so any information passing between the two remains secret.
+* Security is not friendly with performance
+* Https everywhere
+* All traffic secure
+* Only deliver brotli and service workers or geolocation over https
+* istlsfastyet.com
+* TLS has exactly one performance problem: it’s not widely used enough
+* TLS handlshake
+* TLS sesison resumption
+* TLS false startx
+
+#### TLS 1.3 & 0-RTT
+
+* Full Handshake
+* Transport Layer Security (TLS)
+* Predecessor is Secure Sockets Layer (SSL)
+* 2nd RTI   - TWO ROUND TRIPS
+* Session Resumption. Going to a server that it’s been before
+* 0 RTI - ONE ROUND TRIP
+* ssllabs.com
+
+#### HTTP2
+
+* H2 Recap
+* Multiplexing
+* Header Compression
+* Server Push
+* Multiplexing is a method in HTTP/2 by which multiple HTTP requests can be sent and responses can be received asynchronously via a single TCP connection. Multiplexing is the heart of HTTP/2 protocol.
+* uses binary framing
+* We can stream multiple things at the same time and the client is clever enough to put it all back together
+
+##### HPACK  
+- compress header data. Sending line reference to line number rather than entire header
+* H2 can push resources 1-1 relationship between making a request and receiving a file.
+* Server push lets the server preemptively “push” website assets to the client without the user having explicitly asked for them.
+
+If you don’t have TLS connection you have poor performance for everyone
+Certificate needs verifiying. Going off to their CLR and making a request to make sure the request is still valid. 1.5x increase in performance on https. Up to 30% improve on page load when using h2. 15% improvement h2
+
+#### Implementation of HTTPS
+* Choose a certificate provider - Symantec LEtsEncrypt
+* Choose a verification type - EV OV DV
+* Choose a certificate type - Single host SAN Wildcard
+* Server / CDN
+  * If using linux a tool like certbot can help
+  * mixed access or HSTS
+  * CDN’s vary widely
+
+
+#### Problems with Push
+* repeat users
+* browser implementation
+* server side logic
+* Push from the edge of the network
+* Push from the origin
+* https://canipush.com
+* https://shouldipush.com
+
+#### HTTPS ADOPTION
+* 31% of all websites adopted - fully secure
+* 35-40% is actuallly secure content on all sites
+
+#### h2 adoption
+* 4%
+* measure and optimize
+* rewards for moving to https: h2 brotili, service workers
+* h2 can give a instant performance boost
+
+#### Resource Hints
+* dns-prefetch
+* preconnect
+* preload
+
+#### Push alternative - POST HTML
+
+`<link rel=preload>``
+Pros:
+* Add “as” for download priority
+* Proper accept headers
+* Content-security-policy
+* Honours Cache
+* Can Load Asyncronously
+* Add media queries for responsive loading
+* Can Load different domains
+
+Cons:
+* Still requires HTML to be sent
+* Still requires the HTML to be processed
+
+5% use dns-prefetch
+30% -  4 domains prefetched
+
+1% of sites use pre-connect
+18% 4 domains connected
+
+0.6% of sites use preload
+27%
+
+#### Summary
+* Good way of optimising network utilisation
+* DNS-prefetch the most popular
+* Overall Adoption is low
 
 ---
 

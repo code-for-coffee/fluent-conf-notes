@@ -356,3 +356,25 @@ Cons:
 * Create thicker, more powerful front-ends
 * Embrace 3rd party services
 * Use a compute service to execute code on demand
+
+#### AWS Lambda
+
+- Really cool but a massive pain to setup
+- You don't manage the infrastructure
+- Serverles removes the AWS GUI and lets you just code this
+
+
+#### Serverless 101
+
+- _functions_ are triggered by...
+- _Events_
+- Resource (S3, dynamo, IAM, etc)
+- Service
+
+
+#### Quick commands
+
+- `npm install -g serverless`
+- `serverless create -t aws-nodejs`
+- `serverless deploy`
+- `serverless remove`

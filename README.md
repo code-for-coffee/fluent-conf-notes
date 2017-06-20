@@ -79,6 +79,27 @@ CSS -> CSSDOC
 * Brotli is better at compression but a bit slower
 * Investigate using Brotli for static content!
 
+#### Images
+
+* Two different optimization of Images
+  - Create Images
+    - Size & shape for device
+    - Formats (SVG, jpggxp, webp, png, gif, jpeg)
+    - Quality of images (compression & size)
+  - Deliver images
+    - smaller images download faster
+    - Consider network performance
+    - smaller images also load on device faster
+    - Using Responsive images
+    - Adaptive images
+    - Javascript based solutions... aim for native, though
+    - Lazy loading images
+      1. Delay non-critical images until after onload
+      2. As you scroll down the page (mobile/responsive websites)
+      3. Load on a user event (such as a click or hover)
+
+
+
 
 ---
 

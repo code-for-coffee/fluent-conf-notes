@@ -123,6 +123,38 @@ CSS -> CSSDOC
   - ALways fast response
   - Slow time to market
   - Changes to images can take days
+* DIY solutions
+  - mozjepg
+  - Image Magick & imagetragick.com
+  - imageoptim
+  - kraken.io
+  - jpegmini
+  - tinypng
+* Commercial solutions
+  - Akamai
+  - Fastly
+  - imgIX
+  - adobe scene 7
+  - amplience
+  - cloudinary
+* _Responsive Images_
+  * srcset & sizes
+  ```HTML
+  <img src='lol.png' srcset="small.jpg 400w, large.jpg 800w"
+    sizes="(max-wiidth:400px) 400px, 800px"
+    alt='lolcats' />
+  ```
+  - picture tag
+  ```HTML
+  <picture>
+    <source type='image/webp' media='(max-width:400px)' srcset='small.webp' />
+    <source type='image/png' media='(max-width:800px)'
+    srcset='large.png' />
+  </picture>
+  ```
+  - Client Hints - `<meta htttp-equiv="Accept-CH" content="DPR" />`
+
+
 
 ---
 

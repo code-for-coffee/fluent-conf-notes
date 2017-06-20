@@ -370,7 +370,7 @@ Cons:
 - _Events_
 - Resource (S3, dynamo, IAM, etc)
 - Service
-
+- Deployed to AWS East
 
 #### Quick commands
 

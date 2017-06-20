@@ -110,50 +110,81 @@ CSS -> CSSDOC
     - Not as much memory / processor power
 * What to focus on when optimizing..
   - Size, Format, quality
-* **Image Strategy 101**
-  1. On demand or create up front?
-  2. DIY or commercial offering
-  3. Choose a delivery method
-* On demand images
-  - only create images when needed
-  - No wasted storage
-  - Potentially slower first time images
-  - lack of control
-* Create Upfront
-  - ALways fast response
-  - Slow time to market
-  - Changes to images can take days
-* DIY solutions
-  - mozjepg
-  - Image Magick & imagetragick.com
-  - imageoptim
-  - kraken.io
-  - jpegmini
-  - tinypng
-* Commercial solutions
-  - Akamai
-  - Fastly
-  - imgIX
-  - adobe scene 7
-  - amplience
-  - cloudinary
-* _Responsive Images_
-  * srcset & sizes
-  ```HTML
-  <img src='lol.png' srcset="small.jpg 400w, large.jpg 800w"
-    sizes="(max-wiidth:400px) 400px, 800px"
-    alt='lolcats' />
-  ```
-  - picture tag
-  ```HTML
-  <picture>
-    <source type='image/webp' media='(max-width:400px)' srcset='small.webp' />
-    <source type='image/png' media='(max-width:800px)'
-    srcset='large.png' />
-  </picture>
-  ```
-  - Client Hints - `<meta htttp-equiv="Accept-CH" content="DPR" />`
 
+##### **Image Strategy 101**
+
+1. On demand or create up front?
+2. DIY or commercial offering
+3. Choose a delivery method
+  * On demand images
+    - only create images when needed
+    - No wasted storage
+    - Potentially slower first time images
+    - lack of control
+  * Create Upfront
+    - ALways fast response
+    - Slow time to market
+    - Changes to images can take days
+  * DIY solutions
+    - mozjepg
+    - Image Magick & imagetragick.com
+    - imageoptim
+    - kraken.io
+    - jpegmini
+    - tinypng
+  * Commercial solutions
+    - Akamai
+    - Fastly
+    - imgIX
+    - adobe scene 7
+    - amplience
+    - cloudinary
+
+##### Responsive Images
+
+* srcset & sizes
+```HTML
+<img src='lol.png' srcset="small.jpg 400w, large.jpg 800w"
+  sizes="(max-wiidth:400px) 400px, 800px"
+  alt='lolcats' />
+```
+- picture tag
+```HTML
+<picture>
+  <source type='image/webp' media='(max-width:400px)' srcset='small.webp' />
+  <source type='image/png' media='(max-width:800px)'
+  srcset='large.png' />
+</picture>
+```
+- Client Hints - `<meta htttp-equiv="Accept-CH" content="DPR" />`
+- Use SVG for icons!
+- Jpegxr supports transparency ... works with IE10+ and is smaller than png!
+
+##### **Quality**
+
+* Always a bit of a compromise
+* 75%, 85%, 90% compression is standard
+* Some images can be pushed to 50% depending on the colour palette
+* Perceptual Quality (Structured Similarity) algorithm
+  - Looks at contrast/brightness
+  - Returns value of how different they are
+  - Humans can detect approx 10 million unique colours
+  - Chroma Subsampling
+    * chrome (colour)
+    * luma (b&w)
+    * 4:4:4 (Take 4 pixels in 8 pixel block)
+    * 4:2:2 downsampling
+    * 4:2:0 downsampling
+    * Reduces the amount of colour in images and tricks the eye
+    * Photoshop's _Save for Web_ does this automatically
+    * Gimp offers Subsampling rates too
+
+##### Lazy Loading
+
+* Use JS to load images - create <img> and appendChild to DOM
+* Onscroll, onload, load after critical content
+* HTTP1 has a queue that just loads content
+* HTTP2 just has everything being requested/downloaded at the same time and they compete for bandwidth - _load critical images first_
 
 
 ---

@@ -69,7 +69,15 @@ CSS -> CSSDOC
   * 16% faster
 * Brotli is newer and requires a middleman to work with Gzip and only served over https
   * 23% Faster
-
+  * nginx handles it out of the box
+  * mod_brotli for apache
+  * iis Brotli (paid)
+- Who is using this compression? Everyone! Hopefully.
+- 98% of pages have at least 1 compressed object
+- Brotli adoption is 54%
+* Gzip is adopted widely amonst the industry (2.3% isn't using it)
+* Brotli is better at compression but a bit slower
+* Investigate using Brotli for static content!
 
 
 ---

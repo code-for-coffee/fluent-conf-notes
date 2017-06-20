@@ -312,7 +312,8 @@ Certificate needs verifiying. Going off to their CLR and making a request to mak
 
 #### Push alternative - POST HTML
 
-`<link rel=preload>``
+`<link rel=preload>`
+
 Pros:
 * Add “as” for download priority
 * Proper accept headers
@@ -345,6 +346,8 @@ Cons:
 ## Building and deploying microservices with the Serverless Framework
 
 > Kevin Old (LifeWay)
+
+- https://github.com/kevinold/serverless-tutorial-fluentconf-2017 (source)
 
 #### Outline
 

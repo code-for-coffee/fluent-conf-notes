@@ -349,6 +349,10 @@ Cons:
 
 - https://github.com/kevinold/serverless-tutorial-fluentconf-2017 (source)
 
-#### Outline
+#### Objecives of 'Serverless' Architectures
 
-1.
+1. Write single purpose stateless functions
+2. DEsign push-based, event-driven pipelines
+* Create thicker, more powerful front-ends
+* Embrace 3rd party services
+* Use a compute service to execute code on demand

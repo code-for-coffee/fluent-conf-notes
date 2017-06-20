@@ -24,6 +24,10 @@ Time is money. Performance encompasses time. The faster the website, the more mo
 
 #### Webperf 101
 
+> https://www.webpagetest.org/
+
+> https://whatdoesmysitecost.com/
+
 - Measurement
   * You can't optimize what you can't measure; you can't move faster than the speed of light
 - Distance
@@ -97,9 +101,28 @@ CSS -> CSSDOC
       1. Delay non-critical images until after onload
       2. As you scroll down the page (mobile/responsive websites)
       3. Load on a user event (such as a click or hover)
-
-
-
+* Majority of content on the web is an image (http archive, May 2017)
+* Why serve the right size image?
+  - Cellular & WiFi
+  - Mobile Data plans can be expensive ($$$$)
+  - Mobile Device constraints
+    - Mobile devices are not PCs
+    - Not as much memory / processor power
+* What to focus on when optimizing..
+  - Size, Format, quality
+* **Image Strategy 101**
+  1. On demand or create up front?
+  2. DIY or commercial offering
+  3. Choose a delivery method
+* On demand images
+  - only create images when needed
+  - No wasted storage
+  - Potentially slower first time images
+  - lack of control
+* Create Upfront
+  - ALways fast response
+  - Slow time to market
+  - Changes to images can take days
 
 ---
 
